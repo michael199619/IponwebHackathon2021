@@ -12,7 +12,7 @@ const stat = promisify(fs.stat);
 const {API} = config;
 
 const decodeGps = (str: string, n: N): number => {
-    const [degress, minutes, seconds] = str.split(',').map(e => e.split('/').reduce((a, b) => +a / +b, 1));
+    const [degress, minutes, seconds] = str.split(',').map(eval);
     let char = 1;
 
     if (n === 'S' || n === 'E') {
